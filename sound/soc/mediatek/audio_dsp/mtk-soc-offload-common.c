@@ -374,12 +374,12 @@ static int mtk_afe_dloffload_probe(struct snd_soc_component *component)
 					     ARRAY_SIZE(Audio_snd_dloffload_controls));
 	if (ret)
 		pr_info("%s add_component err ret = %d\n", __func__, ret);
-
+/*
 	ret_vh = register_trace_android_vh_snd_compr_use_pause_in_drain(
 				mtk_compr_use_pause_in_drain, NULL);
 	if (ret_vh)
 		pr_info("%s register vh err %d\n", __func__, ret_vh);
-
+*/
 	return ret;
 }
 

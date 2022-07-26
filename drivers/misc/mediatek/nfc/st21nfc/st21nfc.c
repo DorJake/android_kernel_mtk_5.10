@@ -1245,6 +1245,8 @@ MODULE_DEVICE_TABLE(of, st21nfc_of_match);
 static const struct dev_pm_ops st21nfc_pm_ops = { SET_SYSTEM_SLEEP_PM_OPS(
 	st21nfc_suspend, st21nfc_resume) };
 
+static const struct acpi_device_id st21nfc_acpi_match[] = {{"SMO2104"}, {}};
+MODULE_DEVICE_TABLE(acpi, st21nfc_acpi_match);
 
 static struct i2c_driver st21nfc_driver = {
 	.id_table = st21nfc_id,

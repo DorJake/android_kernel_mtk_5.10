@@ -4436,14 +4436,14 @@ static int mtk_m4u_dbg_probe(struct platform_device *pdev)
 		return -ENOMEM;
 
 	m4u_debug_init(m4u_data);
-
+/*
 	ret = register_trace_android_vh_iommu_iovad_alloc_iova(alloc_iova_hook,
 							       "mtk_m4u_dbg_probe");
 	pr_debug("add alloc iova hook %s\n", ret ? "fail": "pass");
 	ret = register_trace_android_vh_iommu_iovad_free_iova(free_iova_hook,
 							      "mtk_m4u_dbg_probe");
 	pr_debug("add free iova hook %s\n", ret ? "fail": "pass");
-
+*/
 	pr_info("%s done\n", __func__);
 	return 0;
 }

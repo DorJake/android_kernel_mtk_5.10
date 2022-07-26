@@ -616,7 +616,9 @@ static struct clkchk_ops clkchk_mt6983_ops = {
 	.is_pll_chk_bug_on = is_pll_chk_bug_on,
 	.get_vf_table = get_vf_table,
 	.get_vcore_opp = get_vcore_opp,
+#if IS_ENABLED(CONFIG_MTK_DEVAPC)
 	.devapc_dump = devapc_dump,
+#endif
 };
 
 static int clk_chk_mt6983_probe(struct platform_device *pdev)

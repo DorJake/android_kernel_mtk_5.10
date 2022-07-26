@@ -32,7 +32,7 @@
 #include "../mediatek/mediatek_v2/mtk_drm_graphics_base.h"
 #include "../mediatek/mediatek_v2/mtk_log.h"
 #endif
-#include "../mediatek/mediatek_v2/mi_disp/mi_dsi_panel_count.h"
+//#include "../mediatek/mediatek_v2/mi_disp/mi_dsi_panel_count.h"
 #include "../mediatek/mediatek_v2/mi_disp/mi_panel_ext.h"
 #include "mi_dsi_panel.h"
 

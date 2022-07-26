@@ -11,7 +11,7 @@ struct tag_videolfb {
 	u32 islcmfound;
 	u32 fps;
 	u32 vram;
-	char lcmname[1]; /* this is the minimum size */
+	char lcmname[1];
 };
 
 #ifdef CONFIG_DRM_FBDEV_EMULATION

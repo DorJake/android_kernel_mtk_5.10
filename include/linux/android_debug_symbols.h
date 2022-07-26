@@ -57,11 +57,11 @@ void android_debug_for_each_module(int (*fn)(const char *mod_name, void *mod_add
 
 static inline void *android_debug_symbol(enum android_debug_symbol symbol)
 {
-	return NULL;
+	return 0;
 }
 static inline void *android_debug_per_cpu_symbol(enum android_debug_per_cpu_symbol symbol)
 {
-	return NULL;
+	return 0;
 }
 
 static inline void android_debug_for_each_module(int (*fn)(const char *mod_name, void *mod_addr,

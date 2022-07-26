@@ -54,7 +54,7 @@
 
 #ifndef CONFIG_SPI_MT65XX_MODULE
 #include "mtk_gpio.h"
-#include "mach/gpio_const.h"
+#include "gpio_const.h"
 #endif
 
 #ifdef CONFIG_HQ_SYSFS_SUPPORT

@@ -90,6 +90,8 @@ struct mtk_drm_private {
 	struct device *dma_dev;
 	struct device *mmsys_dev;
 	struct device *side_mmsys_dev;
+	struct drm_gem_object *fbdev_bo;
+	struct drm_fb_helper fb_helper;
 
 	struct drm_crtc *crtc[MAX_CRTC];
 	unsigned int num_pipes;

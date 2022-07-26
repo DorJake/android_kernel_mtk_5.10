@@ -438,6 +438,7 @@ static void probe_android_vh_selinux_avc_lookup(void *ignore,
 
 static void avc_work_handler(struct work_struct *work)
 {
+/*
 	int ret = 0, ret_erri_line;
 
 	// register avc vendor hook after selinux is initialized
@@ -472,6 +473,7 @@ static void avc_work_handler(struct work_struct *work)
 avc_failed:
 	if (ret)
 		MKP_ERR("register avc hooks failed, ret %d line %d\n", ret, ret_erri_line);
+*/
 }
 static void probe_android_vh_selinux_is_initialized(void *ignore,
 	const struct selinux_state *state)
@@ -771,6 +773,7 @@ int __init mkp_demo_init(void)
 		} else {
 			MKP_ERR("Create cred sharebuf fail\n");
 		}
+/*
 		// register creds vendor hook
 		ret = register_trace_android_vh_commit_creds(
 				probe_android_vh_commit_creds, NULL);
@@ -796,8 +799,9 @@ int __init mkp_demo_init(void)
 			ret_erri_line = __LINE__;
 			goto failed;
 		}
+*/
 	}
-
+/*
 	if (policy_ctrl[MKP_POLICY_DRV] != 0 ||
 		policy_ctrl[MKP_POLICY_KERNEL_PAGES] != 0 ||
 		policy_ctrl[MKP_POLICY_MKP] != 0) {
@@ -832,7 +836,7 @@ int __init mkp_demo_init(void)
 
 	if (policy_ctrl[MKP_POLICY_DRV] != 0 ||
 		policy_ctrl[MKP_POLICY_MKP] != 0) {
-		/* register before/after_init */
+		// register before/after_init 
 		ret = register_trace_android_vh_set_module_permit_before_init(
 				probe_android_vh_set_module_permit_before_init, NULL);
 		if (ret) {
@@ -857,7 +861,7 @@ int __init mkp_demo_init(void)
 			goto failed;
 		}
 	}
-
+*/
 	if (policy_ctrl[MKP_POLICY_KERNEL_CODE] != 0 ||
 		policy_ctrl[MKP_POLICY_KERNEL_RODATA] != 0) {
 #if !defined(CONFIG_KASAN_GENERIC) && !defined(CONFIG_KASAN_SW_TAGS)
@@ -869,6 +873,7 @@ int __init mkp_demo_init(void)
 		ret = protect_kernel();
 #endif
 	}
+/*
 	if (policy_ctrl[MKP_POLICY_TASK_CRED] ||
 		policy_ctrl[MKP_POLICY_SELINUX_STATE]) {
 		ret = register_trace_android_vh_check_mmap_file(
@@ -890,6 +895,7 @@ int __init mkp_demo_init(void)
 			goto failed;
 		}
 	}
+*/
 	register_reboot_notifier(&mkp_reboot_notifier);
 
 

@@ -279,19 +279,21 @@ static int __init init_perf_common(void)
 		pr_info("%s: find csram base failed\n", TAG);
 		goto get_base_failed;
 	}
-
-	/* register tracepoint of scheduler_tick */
+/*
+	// register tracepoint of scheduler_tick 
 	ret = register_trace_android_vh_scheduler_tick(perf_common, NULL);
 	if (ret) {
 		pr_info("%s: register hooks failed, returned %d\n", TAG, ret);
 		goto register_failed;
 	}
+*/
 	perf_common_init = 1;
 	atomic_set(&perf_in_progress, 0);
 	return ret;
-
+/*
 register_failed:
 	unregister_trace_android_vh_scheduler_tick(perf_common, NULL);
+*/
 get_base_failed:
 	exit_cpufreq_table();
 out:
@@ -303,7 +305,7 @@ static void __exit exit_perf_common(void)
 {
 	while (atomic_read(&perf_in_progress) > 0)
 		udelay(30);
-	unregister_trace_android_vh_scheduler_tick(perf_common, NULL);
+//	unregister_trace_android_vh_scheduler_tick(perf_common, NULL);
 	exit_cpufreq_table();
 	cleanup_perf_common_sysfs();
 #if IS_ENABLED(CONFIG_MTK_PERF_TRACKER)

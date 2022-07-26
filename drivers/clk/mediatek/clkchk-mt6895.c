@@ -815,7 +815,9 @@ static struct clkchk_ops clkchk_mt6895_ops = {
 	.is_pll_chk_bug_on = is_pll_chk_bug_on,
 	.get_vf_table = get_vf_table,
 	.get_vcore_opp = get_vcore_opp,
+#if IS_ENABLED(CONFIG_MTK_DEVAPC)
 	.devapc_dump = devapc_dump,
+#endif
 	.dump_hwv_history = dump_hwv_history,
 	.is_cg_chk_pwr_on = is_cg_chk_pwr_on,
 	.dump_hwv_pll_reg = dump_hwv_pll_reg,

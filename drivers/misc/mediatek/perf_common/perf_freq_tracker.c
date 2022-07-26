@@ -86,6 +86,8 @@ static void mtk_freq_qos_update_request(void *data, struct freq_qos_request *req
 
 int insert_freq_qos_hook(void)
 {
+	return 0;
+/*
 	int ret = 0;
 
 	if (is_hooked || !is_inited)
@@ -106,13 +108,16 @@ int insert_freq_qos_hook(void)
 register_failed:
 	remove_freq_qos_hook();
 	return ret;
+*/
 }
 
 void remove_freq_qos_hook(void)
 {
+/*
 	is_hooked = 0;
 	unregister_trace_android_vh_freq_qos_add_request(mtk_freq_qos_add_request, NULL);
 	unregister_trace_android_vh_freq_qos_update_request(mtk_freq_qos_update_request, NULL);
+*/
 }
 
 static void init_cluster_qos_info(void)

@@ -8241,6 +8241,7 @@ static void v4l2subdev_set_frame_interval_hook(void *data,
 
 static void mtk_cam_trace_init(void)
 {
+/*
 	int ret = 0;
 
 	ret = register_trace_android_rvh_media_device_setup_link(
@@ -8271,13 +8272,16 @@ static void mtk_cam_trace_init(void)
 			v4l2subdev_set_frame_interval_hook, NULL);
 	if (ret)
 		pr_info("register android_rvh_v4l2subdev_set_frame_interval failed!\n");
+*/
 }
 
 static void mtk_cam_trace_exit(void)
 {
+/*
 	unregister_trace_android_vh_clear_reserved_fmt_fields(clear_reserved_fmt_fields_hook, NULL);
 	unregister_trace_android_vh_fill_ext_fmtdesc(fill_ext_fmtdesc_hook, NULL);
 	unregister_trace_android_vh_clear_mask_adjust(clear_mask_adjust_hook, NULL);
+*/
 }
 
 static int __init mtk_cam_init(void)
