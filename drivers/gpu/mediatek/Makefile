@@ -22,12 +22,18 @@ else
 export MTK_PLATFORM = $(word 4,$(MTK_GPU_VERSION))
 endif
 
-ifeq ($(MTK_PLATFORM),mt6873)
-subdir-ccflags-y += -DCONFIG_GPU_MT6873
+ifeq ($(MTK_PLATFORM),mt6833)
+subdir-ccflags-y += -DCONFIG_GPU_MT6833
+else ifeq ($(MTK_PLATFORM),mt6855)
+subdir-ccflags-y += -DCONFIG_GPU_MT6855
+else ifeq ($(MTK_PLATFORM),mt6879)
+subdir-ccflags-y += -DCONFIG_GPU_MT6879
 else ifeq ($(MTK_PLATFORM),mt6893)
 subdir-ccflags-y += -DCONFIG_GPU_MT6893
-else ifeq ($(MTK_PLATFORM),mt6853)
-subdir-ccflags-y += -DCONFIG_GPU_MT6853
+else ifeq ($(MTK_PLATFORM),mt6895)
+subdir-ccflags-y += -DCONFIG_GPU_MT6895
+else ifeq ($(MTK_PLATFORM),mt6983)
+subdir-ccflags-y += -DCONFIG_GPU_MT6983
 endif
 endif
 
@@ -36,6 +42,7 @@ ifneq ($(CONFIG_MTK_GPU_SUPPORT),)
     obj-y += hal/
     obj-y += gpufreq/
     obj-y += gpu_bm/
+    obj-y += gpu_mali/
     obj-y += gpueb/
 
 ifneq ($(CONFIG_MTK_GPU_VERSION),"")

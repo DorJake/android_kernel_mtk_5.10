@@ -22,7 +22,7 @@
 include $(src)/Kbuild-mtk-custom-env
 
 mali_kbase-y += \
-	platform/$(MALI_PLATFORM_DIR)/mali_kbase_config_mt6983.o
+	$(MALI_PLATFORM_DIR)/mali_kbase_config_mt6893.o
 
 ccflags-y += \
 	-I$(srctree)/drivers/misc/mediatek/base/power/include

@@ -1,3 +1,8 @@
+
+config MTK_PLATFORM
+	string "Support MTK Driver Version"
+	default ""
+
 config MTK_GPU_SUPPORT
 	tristate "Support MTK GPU"
 	help

@@ -1,10 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note
 #
-# (C) COPYRIGHT 2012-2013, 2016-2017, 2020 ARM Limited. All rights reserved.
+# (C) COPYRIGHT 2019-2021 ARM Limited. All rights reserved.
 #
 # This program is free software and is provided to you under the terms of the
 # GNU General Public License version 2 as published by the Free Software
 # Foundation, and any use by you of this program is subject to the terms
-# of such GNU licence.
+# of such GNU license.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,17 +16,15 @@
 # along with this program; if not, you can access it online at
 # http://www.gnu.org/licenses/gpl-2.0.html.
 #
-# SPDX-License-Identifier: GPL-2.0
-#
 #
 
-include $(src)/Kbuild-mtk-custom-env
+KO_CODE_PATH := $(if $(filter /%,$(src)),,$(srctree)/)$(src)
 
-mali_kbase-y += \
-	platform/$(MALI_PLATFORM_DIR)/mali_kbase_config_mt6983.o
+ccflags-y = -I$(KO_CODE_PATH)/../../../gpu/arm/midgard/include
+subdir-ccflags-y += $(ccflags-y)
 
-ccflags-y += \
-	-I$(srctree)/drivers/misc/mediatek/base/power/include
-ccflags-y += \
-	-I$(srctree)/drivers/misc/mediatek/include/mt-plat
-
+ifeq ($(CONFIG_MALI_PROTECTED_MEMORY_ALLOCATOR), y)
+#obj-m := protected_memory_allocator.o
+obj-m += mali_prot_alloc.o
+mali_prot_alloc-y := protected_memory_allocator.o
+endif
